@@ -32,10 +32,10 @@
   position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(
     108deg,
-    rgba(25,38,14,.90) 0%,
-    rgba(25,38,14,.78) 40%,
-    rgba(25,38,14,.38) 70%,
-    rgba(25,38,14,.10) 100%
+    rgba(15,25,8,.95) 0%,
+    rgba(15,25,8,.88) 45%,
+    rgba(15,25,8,.65) 70%,
+    rgba(15,25,8,.40) 100%
   );
 }
 /* noise grain */
@@ -56,11 +56,12 @@
 }
 .hero-slide .badge { margin-bottom: 24px; }
 .hero-slide h1 {
-  font-size: clamp(38px,5vw,72px);
-  color: #fff;
-  font-weight: 700; line-height: 1.12;
+  font-size: clamp(44px,5.5vw,80px);
+  color: #ffffff;
+  font-weight: 800; line-height: 1.1;
   letter-spacing: -.5px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  text-shadow: 0 2px 24px rgba(0,0,0,.5);
 }
 .hero-shimmer {
   background-image: linear-gradient(90deg, #A8D4B0, #6EC68C, #C8EAD0, #A8D4B0);
@@ -71,48 +72,54 @@
   animation: shimmer 4s linear infinite;
 }
 .hero-slide p {
-  font-size: 16px; line-height: 1.85;
-  color: rgba(255,255,255,.65);
-  max-width: 520px;
+  font-size: 18px; line-height: 1.85;
+  color: rgba(255,255,255,.90);
+  max-width: 540px;
   margin-bottom: 36px;
+  text-shadow: 0 1px 8px rgba(0,0,0,.6);
+  font-weight: 500;
 }
 .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn-lg { padding: 15px 34px; font-size: 16px; }
 
 /* Controls */
 .hero-controls {
-  position: absolute; bottom: 100px; right: 60px; z-index: 10;
+  position: absolute; bottom: 110px; right: 60px; z-index: 20;
   display: flex; align-items: center; gap: 16px;
+  pointer-events: auto;
 }
 .hero-prev, .hero-next {
-  width: 44px; height: 44px; border-radius: 50%;
-  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(255,255,255,.18); border: 1.5px solid rgba(255,255,255,.35);
   color: #fff; display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: all .25s; backdrop-filter: blur(8px);
+  cursor: pointer; transition: all .25s; backdrop-filter: blur(10px);
+  pointer-events: auto; outline: none; flex-shrink: 0;
 }
 .hero-prev:hover, .hero-next:hover {
-  background: rgba(168,212,176,.25); border-color: rgba(168,212,176,.5);
+  background: rgba(110,198,140,.4); border-color: rgba(168,212,176,.7);
+  transform: scale(1.08);
 }
+.hero-prev:active, .hero-next:active { transform: scale(.95); }
 .hero-dots { display: flex; gap: 8px; align-items: center; }
 .hero-dot {
-  width: 8px; height: 8px; border-radius: 4px;
-  background: rgba(255,255,255,.3);
+  width: 9px; height: 9px; border-radius: 5px;
+  background: rgba(255,255,255,.35);
   cursor: pointer; transition: all .35s;
+  border: none; padding: 0; outline: none;
 }
 .hero-dot.active {
-  width: 24px;
+  width: 28px;
   background: var(--sage);
 }
 
 /* Progress bar */
 .hero-progress {
-  position: absolute; bottom: 0; left: 0; right: 0; z-index: 10;
-  height: 2px; background: rgba(255,255,255,.1);
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 20;
+  height: 3px; background: rgba(255,255,255,.12);
 }
-.hero-progress-bar {
-  height: 100%; background: var(--sage);
-  animation: heroProgress 5s linear;
-  transform-origin: right;
+#heroProgress {
+  height: 100%; width: 0%; background: var(--sage);
+  transition: width 5s linear;
 }
 @keyframes heroProgress {
   from { width: 0%; } to { width: 100%; }
